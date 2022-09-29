@@ -4,7 +4,7 @@ import requests
 from flask import request, Response, redirect, url_for
 from datetime import date 
 import os
-import pandas as pd
+import pandas as pd 
 import gspread as gs
 import xendit
 from xendit import Invoice
@@ -128,5 +128,7 @@ def payment():
 
 
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 33507))
+    app.run(host='0.0.0.0', port=port)
