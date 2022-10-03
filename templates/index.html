@@ -45,6 +45,16 @@
   </head>
 
   <body>
+
+    <!-- fery-tes -->
+    <div class="fixed-bottom" style="text-align: right;margin-right: 3%;margin-top: 3%"><button id="playAudio" style="background-color: transparent;border: none;color: #996e6d;">
+      <i id="color" class="fa-solid fa-volume-high fa-2xl"></i>
+      <br>
+      <p>stop music</p>
+    </button></div>
+  
+
+
     <!-- Begin Preloader -->
     <div class="preloader-wrapper">
       <div class="preloader">
@@ -586,7 +596,58 @@
 
     <br><br>
     
+    <!-- AUDIO -->
+
     
+
+  <audio id="testAudio" hidden src="https://docs.google.com/uc?export=download&id=1PqZImqTu6dxeezdK2duQGbpodX8ZcoJz" type="audio/mpeg">
+  </audio>
+  
+  <!-- <button id="playAudio">
+    <i id="color" class="fa-solid fa-volume-high fa-2xl"></i>
+  </button> -->
+
+
+
+<script type="text/javascript">
+  
+  document.getElementById("playAudio").addEventListener("click", function(){
+      var audio = document.getElementById('testAudio');
+
+      
+    if(this.className == 'is-playing'){
+      this.className = "";
+      // this.innerHTML = "Play"
+      audio.play();
+    }else{
+      this.className = "is-playing";
+      // this.innerHTML = "Pause";
+      audio.pause();
+    }
+  
+  });
+
+
+  object.property = 'value';
+  object['property'] = 'value';
+  </script>
+
+
+
+
+<script>
+ navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+        
+        var x = document.getElementById("testAudio"); 
+        x.play();
+     
+         // stop microphone stream acquired by getUserMedia
+         stream.getTracks().forEach(function (track) { track.stop(); });
+     });
+
+</script>
+
+
     <!-- Begin Footer -->
     <div class="footer">
       <div class="container">
