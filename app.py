@@ -26,20 +26,22 @@ app = Flask(__name__)
 def index():
 
     nama = request.form.get('nama')
-    nominal = request.form.get('nominal')
-    if nama:
-        create_invoice = Invoice.create(
-        external_id=nama,
-        amount=nominal,
-        payer_email=f"{nama}@domain.com",
-        description="Putri & Fery Wedding",
-        )
+    # nominal = request.form.get('nominal')
+    # if nama:
+    #     create_invoice = Invoice.create(
+    #     external_id=nama,
+    #     amount=nominal,
+    #     payer_email=f"{nama}@domain.com",
+    #     description="Putri & Fery Wedding",
+    #     )
        
-        data = f'{create_invoice.invoice_url}'
+    #     data = f'{create_invoice.invoice_url}'
 
-        # webbrowser.open_new_tab(data)
+    #     data_nama = nama
 
-        return redirect(data)
+    #     # webbrowser.open_new_tab(data)
+
+    #     return redirect(data)
 
     return render_template('index.html')
     
